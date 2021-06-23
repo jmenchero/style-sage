@@ -1,23 +1,30 @@
 <template>
-  <div class="column">
-    <div class="card">
-      <div class="card-content" @click="increaseCounter">
-        <div class="content has-text-centered">
-          <slot />
-        </div>
+  <div class="card">
+    <header class="card-header">
+      <p class="card-header-title has-text-grey">
+        {{ title }}
+      </p>
+    </header>
+    <div class="card-content" @click="increaseCounter">
+      <div class="content has-text-centered">
+        <slot />
       </div>
-      <footer v-if="count" class="card-footer">
-        <div class="card-footer-item">
-          <span>You clicked {{ counter }}!.</span>
-        </div>
-      </footer>
     </div>
+    <footer v-if="count" class="card-footer">
+      <div class="card-footer-item">
+        <span>You clicked {{ counter }}!.</span>
+      </div>
+    </footer>
   </div>
 </template>
 
 <script>
 export default {
   props: {
+    title: {
+      type: String,
+      required: true,
+    },
     count: {
       type: Boolean,
       required: false,
@@ -39,7 +46,8 @@ export default {
 <style scoped>
 .card {
   width: 200px;
-  height: 250px;
+  height: 300px;
+  margin: 1rem;
 }
 .card:hover {
   transform: scale(1.1);
@@ -53,6 +61,6 @@ export default {
   cursor: pointer;
 }
 img {
-  width: auto;
+  max-height: 150px;
 }
 </style>
