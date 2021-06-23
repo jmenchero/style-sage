@@ -1,10 +1,22 @@
 <template>
   <section class="section">
-    <h2 class="title is-3 has-text-grey">
-      "Just start <b-icon icon="rocket" size="is-large" />"
-    </h2>
-    <h3 class="subtitle is-6 has-text-grey">
-      Author: <a href="https://github.com/anteriovieira"> Antério Vieira </a>
-    </h3>
+    <card :count="true">
+      <img :src="'https://cataas.com' + cat.url" />
+    </card>
   </section>
 </template>
+
+<script>
+export default {
+  name: 'Cats',
+  layout: 'default',
+  data() {
+    return {
+      cat: {},
+    }
+  },
+  async fetch() {
+    this.cat = await this.$axios.$get('https://cataas.com/cat?json=true')
+  },
+}
+</script>
