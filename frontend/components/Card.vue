@@ -7,7 +7,7 @@
     </header>
     <div class="card-content" @click="increaseCounter">
       <div class="content has-text-centered">
-        <slot />
+        <img :src="photo" />
       </div>
     </div>
     <footer v-if="count" class="card-footer">
@@ -28,6 +28,10 @@ export default {
     count: {
       type: Boolean,
       required: false,
+    },
+    photo: {
+      type: String,
+      required: true,
     },
   },
   data() {

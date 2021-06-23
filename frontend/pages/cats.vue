@@ -1,15 +1,16 @@
 <template>
   <section class="section">
-    <card v-for="(cat, key) in cats" :key="key" :count="true" :title="cat.name">
-      <img
-        v-if="cat.primary_photo_cropped"
-        :src="cat.primary_photo_cropped.small"
-      />
-      <img
-        v-else
-        src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg"
-      />
-    </card>
+    <card
+      v-for="(cat, key) in cats"
+      :key="key"
+      :count="true"
+      :title="cat.name"
+      :photo="
+        cat.primary_photo_cropped
+          ? cat.primary_photo_cropped.small
+          : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'
+      "
+    />
   </section>
 </template>
 
