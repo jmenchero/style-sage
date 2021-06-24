@@ -1,11 +1,12 @@
 <template>
   <div>
-    <nav class="navbar header has-shadow">
+    <nav class="navbar header has-shadow fixed-top" fixed-top="True">
       <div class="navbar-brand">
         <a class="navbar-item" href="/">
           <img src="~assets/logo.svg" class="logo" />
         </a>
       </div>
+      <span class="navbar-item">Juan Menchero</span>
     </nav>
 
     <section class="main-content columns">
@@ -24,6 +25,14 @@
         <nuxt />
       </div>
     </section>
+
+    <nav class="navbar footer has-shadow fixed-top" fixed-top="True">
+      <div>
+        <span>Coded with</span>
+        <b-icon icon="heart" size="is-small" />
+        <span>from Galicia</span>
+      </div>
+    </nav>
   </div>
 </template>
 
@@ -56,5 +65,15 @@ export default {
 <style scoped>
 .logo {
   height: 100%;
+}
+.navbar {
+  position: fixed;
+  width: 100%;
+  padding-top: 1rem;
+  justify-content: space-between;
+}
+.footer {
+  bottom: 0;
+  padding: 1rem;
 }
 </style>

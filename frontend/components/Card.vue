@@ -1,6 +1,6 @@
 <template>
   <div class="card">
-    <header class="card-header">
+    <header v-if="title" class="card-header">
       <p class="card-header-title has-text-grey">
         {{ title }}
       </p>
@@ -15,6 +15,21 @@
         <span>You clicked {{ counter }}!.</span>
       </div>
     </footer>
+    <footer v-if="footer" class="card-footer">
+      <div class="card-footer-item">
+        <span>{{ footer }}</span>
+      </div>
+      <div class="card-footer-item">
+        <b-button
+          v-if="likeable"
+          class="button--like"
+          size="is-small"
+          icon-left="heart"
+        >
+          Like
+        </b-button>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -23,9 +38,19 @@ export default {
   props: {
     title: {
       type: String,
-      required: true,
+      required: false,
+      default: '',
+    },
+    footer: {
+      type: String,
+      required: false,
+      default: '',
     },
     count: {
+      type: Boolean,
+      required: false,
+    },
+    likeable: {
       type: Boolean,
       required: false,
     },
@@ -49,8 +74,8 @@ export default {
 
 <style scoped>
 .card {
-  width: 200px;
-  height: 300px;
+  width: 250px;
+  height: 330px;
   margin: 1rem;
 }
 .card:hover {
@@ -63,6 +88,18 @@ export default {
 .card-content {
   height: 200px;
   cursor: pointer;
+}
+.card-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.button--like {
+  position: absolute;
+  width: 4rem;
+  margin: 1rem;
+  right: 0;
+  bottom: 0;
 }
 img {
   max-height: 150px;

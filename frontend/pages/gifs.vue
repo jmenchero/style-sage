@@ -1,10 +1,35 @@
 <template>
   <section class="section">
-    <h2 class="title is-3 has-text-grey">
-      "Just start <b-icon icon="rocket" size="is-large" />"
-    </h2>
-    <h3 class="subtitle is-6 has-text-grey">
-      Author: <a href="https://github.com/anteriovieira"> Antério Vieira </a>
-    </h3>
+    <card
+      v-for="(gif, key) in gifs"
+      :key="key"
+      :footer="gif.title"
+      :photo="gif.gif"
+      :likeable="true"
+    />
   </section>
 </template>
+
+<script>
+export default {
+  name: 'Gifs',
+  layout: 'default',
+  async fetch() {
+    await this.$store.dispatch('gifs/fetchGifs')
+  },
+  computed: {
+    gifs() {
+      return this.$store.state.gifs.gifs
+    },
+  },
+}
+</script>
+
+<style scoped>
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-content: flex-start;
+}
+</style>
