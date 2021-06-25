@@ -1,10 +1,60 @@
 <template>
   <section class="section">
-    <h2 class="title is-3 has-text-grey">
-      "Just start <b-icon icon="rocket" size="is-large" />"
-    </h2>
-    <h3 class="subtitle is-6 has-text-grey">
-      Author: <a href="https://github.com/anteriovieira"> Antério Vieira </a>
-    </h3>
+    <heat-time-map :chart-data="heatMap" />
   </section>
 </template>
+
+<script>
+import _ from 'lodash'
+
+export default {
+  name: 'Coupons',
+  layout: 'default',
+  data: () => ({
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+    },
+  }),
+  async fetch() {
+    await this.$store.dispatch('coupons/fetchCoupons')
+  },
+  computed: {
+    coupons() {
+      return this.$store.state.coupons.displayedCoupons
+    },
+    count() {
+      return this.$store.getters['coupons/count']
+    },
+    heatMap() {
+      const heatTimeMap = this.$store.getters['coupons/heatTimeMap']
+
+      const datasets = _.map(heatTimeMap, (dates, type) => {
+        const data = _.map(dates, (count, date) => {
+          return {
+            x: date,
+            y: count,
+          }
+        })
+        return {
+          label: type,
+          backgroundColor: this.randomColor(),
+          data,
+        }
+      })
+      return { datasets }
+    },
+  },
+  methods: {
+    randomColor() {
+      return '#' + Math.floor(Math.random() * 600 + 300)
+    },
+  },
+}
+</script>
+
+<style scoped>
+.section {
+  padding: 100px;
+}
+</style>
