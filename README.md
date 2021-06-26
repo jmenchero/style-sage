@@ -12,7 +12,7 @@ You can check the app here: [jmenchero-style-sage.netlify.app](https://jmenchero
 
 ## Description
 
-Proyecto Vue de prueba para StyleSage siguiendo el [enunciado propuesto](resources/Prueba Técnica.pdf).
+Proyecto Vue de prueba para StyleSage siguiendo el [enunciado propuesto](resources/enunciado.pdf).
 
 La mayor parte de los ficheros han sido autogenerados por Nuxt, por lo que los ficheros interesantes a evaluar con la logica de la aplicacion son:
 
