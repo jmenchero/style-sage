@@ -44,7 +44,7 @@ export default {
         {
           title: 'Cat-Clicker',
           icon: 'cat',
-          to: { name: 'cats' },
+          to: { name: 'index' },
         },
         {
           title: 'Gifs',

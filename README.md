@@ -31,6 +31,8 @@ La mayor parte de los ficheros han sido autogenerados por Nuxt, por lo que los f
 
 ## Notas
 * Se han utilizado proveedores de APIs externos para los dos primeros ejercicios al haber caducado los enlaces a los gifs propuestos, y preferir no hardcodear los datos de los gatos.
+* Es posible que la lista de gatos aparezca sin fotos (se actualiza automaticamente con las ultimas mascotas subidas a petfinder y a veces no suben las fotos)
+
 ## To-Do's
 - FEATURE: Include favicon
 - FEATURE: Display count in cat detail
