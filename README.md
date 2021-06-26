@@ -1,7 +1,5 @@
 # Style Sage technical test
 
-# pokedex
-
 [![Netlify Status](https://api.netlify.com/api/v1/badges/85eb6180-0860-4ea1-b5d5-2db8ccde40ac/deploy-status)](https://app.netlify.com/sites/cocky-hugle-c98385/deploys)
 
 You can check the app here: [jmenchero-style-sage.netlify.app](https://jmenchero-style-sage.netlify.app/)
